@@ -54,24 +54,26 @@ def get_card_from_players(plyr, card):
     return c
 
 
-this_pit = list()
+if __name__ == '__main__':
 
-for _ in range(13):
-    rnd.shuffle(player1)
-    running_card = rnd.choice(player1)
-    player1.remove(running_card)
-    this_pit.append(running_card)
+    this_pit = list()
 
-    this_pit.append(get_card_from_players(player2, running_card[0]))
-    this_pit.append(get_card_from_players(player3, running_card[0]))
-    this_pit.append(get_card_from_players(player4, running_card[0]))
+    for _ in range(13):
+        rnd.shuffle(player1)
+        running_card = rnd.choice(player1)
+        player1.remove(running_card)
+        this_pit.append(running_card)
 
-    print('-----------')
-    print(this_pit)
+        this_pit.append(get_card_from_players(player2, running_card[0]))
+        this_pit.append(get_card_from_players(player3, running_card[0]))
+        this_pit.append(get_card_from_players(player4, running_card[0]))
 
-    biggest_card = get_the_biggest_card(this_pit)
-    print("Winner is Player-{} with Cards {}".format(this_pit.index(biggest_card) + 1, biggest_card))
-    this_pit.clear()
+        print('-----------')
+        print(this_pit)
+
+        biggest_card = get_the_biggest_card(this_pit)
+        print("Winner is Player-{} with Cards {}".format(this_pit.index(biggest_card) + 1, biggest_card))
+        this_pit.clear()
 
 
 # TODO: 1. Trump Card (Done!) , 2. Card sacrificing ( smaller in case no bigger card is available )
