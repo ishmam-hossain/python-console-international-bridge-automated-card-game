@@ -1,4 +1,5 @@
-from distribute_cards import player1, player2, player3, player4
+from card_deck_manager.deck_creator import *
+from card_deck_manager.deck_distributor import *
 import random as rnd
 
 
@@ -55,6 +56,10 @@ def get_card_from_players(plyr, card):
 
 
 if __name__ == '__main__':
+
+    player1, player2, player3, player4 = distribute_cards_from_full_deck(
+        create_new_shuffled_deck()
+    )
 
     this_pit = list()
 
